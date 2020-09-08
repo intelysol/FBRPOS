@@ -1,0 +1,17 @@
+c:\Projects\FBRPOS\FBRPOS\bin\Debug\FBRPOS.exe
+c:\Projects\FBRPOS\FBRPOS\bin\Debug\FBRPOS.pdb
+c:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.Properties.Resources.resources
+c:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.csproj.GenerateResource.Cache
+c:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.exe.licenses
+c:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.exe
+c:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.pdb
+c:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.frmItemCategory.resources
+c:\Projects\FBRPOS\FBRPOS\bin\Debug\FBRPOS.exe.config
+c:\Projects\FBRPOS\FBRPOS\bin\Debug\EntityFramework.dll
+c:\Projects\FBRPOS\FBRPOS\bin\Debug\EntityFramework.SqlServer.dll
+c:\Projects\FBRPOS\FBRPOS\bin\Debug\EntityFramework.xml
+c:\Projects\FBRPOS\FBRPOS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.frmBrand.resources
+c:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.frmItemsSetup.resources
+c:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.frmCustomers.resources
+c:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.csprojResolveAssemblyReference.cache

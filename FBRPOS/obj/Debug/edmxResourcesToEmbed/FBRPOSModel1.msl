@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="POSDatabase2005ModelStoreContainer" CdmEntityContainer="POSDatabase2005Entities">
+    <EntitySetMapping Name="CompanyInformations">
+      <EntityTypeMapping TypeName="POSDatabase2005Model.CompanyInformation">
+        <MappingFragment StoreEntitySet="CompanyInformation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+          <ScalarProperty Name="DockitFooter" ColumnName="DockitFooter" />
+          <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="DeliveryNumbers" ColumnName="DeliveryNumbers" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="NTNNumber" ColumnName="NTNNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Coupons">
+      <EntityTypeMapping TypeName="POSDatabase2005Model.Coupon">
+        <MappingFragment StoreEntitySet="Coupons">
+          <ScalarProperty Name="CouponID" ColumnName="CouponID" />
+          <ScalarProperty Name="CouponDesc" ColumnName="CouponDesc" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DealSetups">
+      <EntityTypeMapping TypeName="POSDatabase2005Model.DealSetup">
+        <MappingFragment StoreEntitySet="DealSetup">
+          <ScalarProperty Name="DealCode" ColumnName="DealCode" />
+          <ScalarProperty Name="DealDescription" ColumnName="DealDescription" />
+          <ScalarProperty Name="DealRule" ColumnName="DealRule" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiscountSetups">
+      <EntityTypeMapping TypeName="POSDatabase2005Model.DiscountSetup">
+        <MappingFragment StoreEntitySet="DiscountSetup">
+          <ScalarProperty Name="DiscountCode" ColumnName="DiscountCode" />
+          <ScalarProperty Name="DiscountDescription" ColumnName="DiscountDescription" />
+          <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+          <ScalarProperty Name="IsPercentage" ColumnName="IsPercentage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeInformations">
+      <EntityTypeMapping TypeName="POSDatabase2005Model.EmployeeInformation">
+        <MappingFragment StoreEntitySet="EmployeeInformation">
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="NICNumber" ColumnName="NICNumber" />
+          <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="EmployeePicture" ColumnName="EmployeePicture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemSetups">
+      <EntityTypeMapping TypeName="POSDatabase2005Model.ItemSetup">
+        <MappingFragment StoreEntitySet="ItemSetup">
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CatagoryCode" ColumnName="CatagoryCode" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ItemDesc" ColumnName="ItemDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="POSDatabase2005Model.Transaction">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="TransactionNo" ColumnName="TransactionNo" />
+          <ScalarProperty Name="FBRInvoiceNumber" ColumnName="FBRInvoiceNumber" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+          <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+          <ScalarProperty Name="Customers" ColumnName="Customers" />
+          <ScalarProperty Name="SalesTaxNo" ColumnName="SalesTaxNo" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="RegistrationAddress" ColumnName="RegistrationAddress" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+          <ScalarProperty Name="ItemQuantity" ColumnName="ItemQuantity" />
+          <ScalarProperty Name="ItemTotalAmount" ColumnName="ItemTotalAmount" />
+          <ScalarProperty Name="InvTotalAmount" ColumnName="InvTotalAmount" />
+          <ScalarProperty Name="DiscountCode" ColumnName="DiscountCode" />
+          <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+          <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+          <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="TransactionClose" ColumnName="TransactionClose" />
+          <ScalarProperty Name="TransactionsVoid" ColumnName="TransactionsVoid" />
+          <ScalarProperty Name="VoidDescription" ColumnName="VoidDescription" />
+          <ScalarProperty Name="TransactionStartTime" ColumnName="TransactionStartTime" />
+          <ScalarProperty Name="TransactionEndTime" ColumnName="TransactionEndTime" />
+          <ScalarProperty Name="DiscountName" ColumnName="DiscountName" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="NewRecord" ColumnName="NewRecord" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="POSDatabase2005Model.Brand">
+        <MappingFragment StoreEntitySet="Brands">
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="BrandCode" ColumnName="BrandCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategorySetups">
+      <EntityTypeMapping TypeName="POSDatabase2005Model.CategorySetup">
+        <MappingFragment StoreEntitySet="CategorySetup">
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
