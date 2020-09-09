@@ -38,23 +38,23 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.cmbBrandName = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // txtBrandID
             // 
-            this.txtBrandID.Location = new System.Drawing.Point(135, 54);
+            this.txtBrandID.Location = new System.Drawing.Point(149, 66);
             this.txtBrandID.Name = "txtBrandID";
             this.txtBrandID.Size = new System.Drawing.Size(63, 27);
             this.txtBrandID.TabIndex = 5;
             // 
             // btnNew
             // 
-            this.btnNew.BackColor = System.Drawing.Color.LightBlue;
-            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.ForeColor = System.Drawing.Color.Blue;
+            this.btnNew.ForeColor = System.Drawing.Color.Black;
             this.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNew.Location = new System.Drawing.Point(31, 139);
+            this.btnNew.Location = new System.Drawing.Point(90, 172);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(96, 42);
             this.btnNew.TabIndex = 4;
@@ -70,14 +70,14 @@
             this.lblHeading.Location = new System.Drawing.Point(0, -2);
             this.lblHeading.Name = "lblHeading";
             this.lblHeading.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblHeading.Size = new System.Drawing.Size(467, 33);
+            this.lblHeading.Size = new System.Drawing.Size(585, 33);
             this.lblHeading.TabIndex = 3;
             this.lblHeading.Text = "Brands Setup";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 57);
+            this.label2.Location = new System.Drawing.Point(44, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 19);
             this.label2.TabIndex = 3;
@@ -86,7 +86,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(30, 96);
+            this.label3.Location = new System.Drawing.Point(44, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 19);
             this.label3.TabIndex = 3;
@@ -94,19 +94,17 @@
             // 
             // txtBrandName
             // 
-            this.txtBrandName.Location = new System.Drawing.Point(135, 93);
+            this.txtBrandName.Location = new System.Drawing.Point(149, 105);
             this.txtBrandName.Name = "txtBrandName";
-            this.txtBrandName.Size = new System.Drawing.Size(243, 27);
+            this.txtBrandName.Size = new System.Drawing.Size(370, 27);
             this.txtBrandName.TabIndex = 5;
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.LightBlue;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.Blue;
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(131, 139);
+            this.btnSave.Location = new System.Drawing.Point(190, 172);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(96, 42);
             this.btnSave.TabIndex = 4;
@@ -117,12 +115,10 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.LightBlue;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.Blue;
+            this.btnDelete.ForeColor = System.Drawing.Color.Black;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(231, 139);
+            this.btnDelete.Location = new System.Drawing.Point(290, 172);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(96, 42);
             this.btnDelete.TabIndex = 4;
@@ -133,13 +129,11 @@
             // 
             // btnClose
             // 
-            this.btnClose.BackColor = System.Drawing.Color.LightBlue;
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.Blue;
+            this.btnClose.ForeColor = System.Drawing.Color.Black;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(331, 139);
+            this.btnClose.Location = new System.Drawing.Point(390, 172);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(96, 42);
             this.btnClose.TabIndex = 4;
@@ -151,17 +145,35 @@
             // cmbBrandName
             // 
             this.cmbBrandName.FormattingEnabled = true;
-            this.cmbBrandName.Location = new System.Drawing.Point(202, 54);
+            this.cmbBrandName.Location = new System.Drawing.Point(216, 66);
             this.cmbBrandName.Name = "cmbBrandName";
-            this.cmbBrandName.Size = new System.Drawing.Size(176, 27);
+            this.cmbBrandName.Size = new System.Drawing.Size(303, 27);
             this.cmbBrandName.TabIndex = 7;
             this.cmbBrandName.SelectedIndexChanged += new System.EventHandler(this.cmbBrandName_SelectedIndexChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(0, 154);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(574, 5);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Location = new System.Drawing.Point(3, 225);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(574, 5);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
             // 
             // frmBrand
             // 
             this.AcceptButton = this.btnSave;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(461, 190);
+            this.ClientSize = new System.Drawing.Size(580, 242);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cmbBrandName);
             this.Controls.Add(this.txtBrandName);
             this.Controls.Add(this.txtBrandID);
@@ -195,6 +207,8 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ComboBox cmbBrandName;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
 
     
 

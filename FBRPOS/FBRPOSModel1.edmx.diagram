@@ -7,7 +7,7 @@
       <Diagram DiagramId="aeb95e9dc0294956bbaad4282244694c" Name="Diagram1">
         <EntityTypeShape EntityType="POSDatabase2005Model.CompanyInformation" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="POSDatabase2005Model.Coupon" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSDatabase2005Model.DealSetup" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSDatabase2005Model.DealSetup" Width="1.5" PointX="0.875" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="POSDatabase2005Model.DiscountSetup" Width="1.5" PointX="2.875" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="POSDatabase2005Model.EmployeeInformation" Width="1.5" PointX="4.875" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="POSDatabase2005Model.ItemSetup" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />

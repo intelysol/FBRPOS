@@ -14,4 +14,5 @@ c:\Projects\FBRPOS\FBRPOS\bin\Debug\EntityFramework.SqlServer.xml
 C:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.frmBrand.resources
 c:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.frmItemsSetup.resources
 c:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.frmCustomers.resources
-c:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.csprojResolveAssemblyReference.cache
+C:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.frmMain.resources
+C:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.ucBrands.resources
