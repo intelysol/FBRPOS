@@ -14,7 +14,7 @@ namespace FBRPOS
     
     public partial class EmployeeInformation
     {
-        public string EmployeeCode { get; set; }
+        public string ID { get; set; }
         public string EmployeeName { get; set; }
         public string FatherName { get; set; }
         public string NICNumber { get; set; }
@@ -22,5 +22,7 @@ namespace FBRPOS
         public string ContactNumber { get; set; }
         public string Address { get; set; }
         public byte[] EmployeePicture { get; set; }
+        public string Department_ID { get; set; }
+        public string Designation_ID { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace FBRPOS
     
     public partial class CompanyInformation
     {
-        public int id { get; set; }
+        public string ID { get; set; }
         public string CompanyName { get; set; }
         public string CompanyAddress { get; set; }
         public string DockitFooter { get; set; }

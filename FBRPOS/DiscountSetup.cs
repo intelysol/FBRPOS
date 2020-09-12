@@ -14,9 +14,10 @@ namespace FBRPOS
     
     public partial class DiscountSetup
     {
-        public string DiscountCode { get; set; }
+        public string ID { get; set; }
         public string DiscountDescription { get; set; }
         public Nullable<decimal> DiscountAmount { get; set; }
         public string IsPercentage { get; set; }
+        public Nullable<int> IsActive { get; set; }
     }
 }

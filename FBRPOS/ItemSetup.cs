@@ -17,9 +17,11 @@ namespace FBRPOS
         public string ItemCode { get; set; }
         public string ItemName { get; set; }
         public Nullable<decimal> Price { get; set; }
-        public string CatagoryCode { get; set; }
-        public Nullable<decimal> Quantity { get; set; }
-        public string IsActive { get; set; }
+        public string Catagory_ID { get; set; }
+        public string Brand_ID { get; set; }
+        public Nullable<decimal> MinQuantity { get; set; }
+        public Nullable<decimal> MaxQuantity { get; set; }
         public string ItemDesc { get; set; }
+        public Nullable<int> IsActive { get; set; }
     }
 }

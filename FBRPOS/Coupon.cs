@@ -14,8 +14,8 @@ namespace FBRPOS
     
     public partial class Coupon
     {
-        public string CouponID { get; set; }
+        public string ID { get; set; }
         public string CouponDesc { get; set; }
-        public string IsActive { get; set; }
+        public Nullable<int> IsActive { get; set; }
     }
 }

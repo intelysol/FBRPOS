@@ -14,8 +14,9 @@ namespace FBRPOS
     
     public partial class DealSetup
     {
-        public string DealCode { get; set; }
+        public string ID { get; set; }
         public string DealDescription { get; set; }
         public string DealRule { get; set; }
+        public Nullable<int> IsActive { get; set; }
     }
 }

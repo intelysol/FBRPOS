@@ -81,7 +81,7 @@
     <Compile Include="Brand.cs">
       <DependentUpon>FBRPOSModel1.tt</DependentUpon>
     </Compile>
-    <Compile Include="CategorySetup.cs">
+    <Compile Include="CatagorySetup.cs">
       <DependentUpon>FBRPOSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CompanyInformation.cs">
@@ -113,12 +113,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FBRPOSModel1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="frmBrand.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBrand.Designer.cs">
-      <DependentUpon>frmBrand.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCustomers.cs">
       <SubType>Form</SubType>
@@ -158,9 +152,12 @@
     <Compile Include="ucBrands.Designer.cs">
       <DependentUpon>ucBrands.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmBrand.resx">
-      <DependentUpon>frmBrand.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="ucItemCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucItemCategory.Designer.cs">
+      <DependentUpon>ucItemCategory.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmCustomers.resx">
       <DependentUpon>frmCustomers.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +183,9 @@
     </Compile>
     <EmbeddedResource Include="ucBrands.resx">
       <DependentUpon>ucBrands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucItemCategory.resx">
+      <DependentUpon>ucItemCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="FBRPOSModel1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

@@ -14,7 +14,8 @@ namespace FBRPOS
     
     public partial class Brand
     {
-        public string BrandCode { get; set; }
+        public string ID { get; set; }
         public string BrandName { get; set; }
+        public Nullable<int> IsActive { get; set; }
     }
 }

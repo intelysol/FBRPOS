@@ -7,23 +7,25 @@
     <Schema Namespace="POSDatabase2005Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Brands">
           <Key>
-            <PropertyRef Name="BrandCode" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="BrandCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="4" Nullable="false" />
           <Property Name="BrandName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="int" />
         </EntityType>
-        <EntityType Name="CategorySetup">
+        <EntityType Name="CatagorySetup">
           <Key>
-            <PropertyRef Name="CategoryCode" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="CategoryCode" Type="nvarchar" MaxLength="4" Nullable="false" />
-          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="CatagoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="int" />
         </EntityType>
         <EntityType Name="CompanyInformation">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="4" Nullable="false" />
           <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
           <Property Name="CompanyAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="DockitFooter" Type="nvarchar" MaxLength="200" />
@@ -35,11 +37,11 @@
         </EntityType>
         <EntityType Name="Coupons">
           <Key>
-            <PropertyRef Name="CouponID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="CouponID" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="4" Nullable="false" />
           <Property Name="CouponDesc" Type="nvarchar" MaxLength="200" />
-          <Property Name="IsActive" Type="char" MaxLength="1" />
+          <Property Name="IsActive" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6013: The table/view 'POSDatabase2005.dbo.DailySummary' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
@@ -51,26 +53,28 @@ warning 6013: The table/view 'POSDatabase2005.dbo.DailySummary' does not have a 
         </EntityType>-->
         <EntityType Name="DealSetup">
           <Key>
-            <PropertyRef Name="DealCode" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="DealCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="4" Nullable="false" />
           <Property Name="DealDescription" Type="nvarchar" MaxLength="30" />
           <Property Name="DealRule" Type="nvarchar" MaxLength="30" />
+          <Property Name="IsActive" Type="int" />
         </EntityType>
         <EntityType Name="DiscountSetup">
           <Key>
-            <PropertyRef Name="DiscountCode" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="DiscountCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="4" Nullable="false" />
           <Property Name="DiscountDescription" Type="nvarchar" MaxLength="30" />
           <Property Name="DiscountAmount" Type="money" />
           <Property Name="IsPercentage" Type="char" MaxLength="1" />
+          <Property Name="IsActive" Type="int" />
         </EntityType>
         <EntityType Name="EmployeeInformation">
           <Key>
-            <PropertyRef Name="EmployeeCode" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="EmployeeCode" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="4" Nullable="false" />
           <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
           <Property Name="FatherName" Type="nvarchar" MaxLength="50" />
           <Property Name="NICNumber" Type="nvarchar" MaxLength="15" />
@@ -78,14 +82,9 @@ warning 6013: The table/view 'POSDatabase2005.dbo.DailySummary' does not have a 
           <Property Name="ContactNumber" Type="nvarchar" MaxLength="15" />
           <Property Name="Address" Type="nvarchar" MaxLength="80" />
           <Property Name="EmployeePicture" Type="varbinary(max)" />
+          <Property Name="Department_ID" Type="nvarchar" MaxLength="4" />
+          <Property Name="Designation_ID" Type="nvarchar" MaxLength="4" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'POSDatabase2005.dbo.FamilySetup' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="FamilySetup">
-          <Property Name="FamilyCode" Type="nvarchar" MaxLength="5" />
-          <Property Name="FamilyGuardian" Type="nvarchar" MaxLength="50" />
-          <Property Name="CreditLimit" Type="money" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6013: The table/view 'POSDatabase2005.dbo.FBRSettings' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="FBRSettings">
@@ -101,10 +100,12 @@ warning 6013: The table/view 'POSDatabase2005.dbo.FBRSettings' does not have a p
           <Property Name="ItemCode" Type="nvarchar" MaxLength="4" Nullable="false" />
           <Property Name="ItemName" Type="nvarchar" MaxLength="255" />
           <Property Name="Price" Type="money" />
-          <Property Name="CatagoryCode" Type="nvarchar" MaxLength="4" />
-          <Property Name="Quantity" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="IsActive" Type="char" MaxLength="1" />
+          <Property Name="Catagory_ID" Type="nvarchar" MaxLength="4" />
+          <Property Name="Brand_ID" Type="nvarchar" MaxLength="4" />
+          <Property Name="MinQuantity" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="MaxQuantity" Type="numeric" Precision="18" Scale="0" />
           <Property Name="ItemDesc" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsActive" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6013: The table/view 'POSDatabase2005.dbo.MemberInformation' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
@@ -128,13 +129,6 @@ warning 6013: The table/view 'POSDatabase2005.dbo.MemberInformation' does not ha
           <Property Name="CardNumber" Type="nvarchar" MaxLength="15" />
         </EntityType>-->
         <!--Errors Found During Generation:
-warning 6013: The table/view 'POSDatabase2005.dbo.MemberShipSetup' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="MemberShipSetup">
-          <Property Name="Code" Type="nvarchar" MaxLength="4" />
-          <Property Name="MemberShip" Type="nvarchar" MaxLength="255" />
-          <Property Name="CreditLimit" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6013: The table/view 'POSDatabase2005.dbo.MenuRights' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="MenuRights">
           <Property Name="UserID" Type="nvarchar" MaxLength="15" />
@@ -144,10 +138,11 @@ warning 6013: The table/view 'POSDatabase2005.dbo.MenuRights' does not have a pr
         <!--Errors Found During Generation:
 warning 6013: The table/view 'POSDatabase2005.dbo.TaxesSetup' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="TaxesSetup">
-          <Property Name="TaxesCode" Type="nvarchar" MaxLength="3" />
+          <Property Name="ID" Type="nvarchar" MaxLength="4" />
           <Property Name="TaxesDescription" Type="nvarchar" MaxLength="50" />
-          <Property Name="TaxesAmount" Type="money" />
-          <Property Name="IsPercentage" Type="char" MaxLength="1" />
+          <Property Name="TaxesAmount" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="IsPercentage" Type="int" />
+          <Property Name="IsActive" Type="int" />
         </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'POSDatabase2005.dbo.Transactions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -155,23 +150,24 @@ warning 6002: The table/view 'POSDatabase2005.dbo.Transactions' does not have a 
           <Key>
             <PropertyRef Name="NewRecord" />
           </Key>
-          <Property Name="TransactionNo" Type="nvarchar" MaxLength="15" />
+          <Property Name="ID" Type="nvarchar" MaxLength="15" />
           <Property Name="FBRInvoiceNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="TransactionDate" Type="datetime" />
           <Property Name="TransactionType" Type="nvarchar" MaxLength="15" />
-          <Property Name="CategoryCode" Type="nvarchar" MaxLength="5" />
+          <Property Name="Catagory_ID" Type="nvarchar" MaxLength="4" />
           <Property Name="Customers" Type="nvarchar" MaxLength="50" />
           <Property Name="SalesTaxNo" Type="nvarchar" MaxLength="25" />
           <Property Name="ContactNo" Type="nvarchar" MaxLength="25" />
           <Property Name="RegistrationAddress" Type="nvarchar" MaxLength="150" />
           <Property Name="UserID" Type="nvarchar" MaxLength="15" />
-          <Property Name="ItemCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="Item_ID" Type="nvarchar" MaxLength="4" />
           <Property Name="ItemName" Type="nvarchar" MaxLength="50" />
           <Property Name="ItemPrice" Type="money" />
+          <Property Name="ItemPriceExTaxes" Type="money" />
           <Property Name="ItemQuantity" Type="money" />
           <Property Name="ItemTotalAmount" Type="money" />
           <Property Name="InvTotalAmount" Type="money" />
-          <Property Name="DiscountCode" Type="nvarchar" MaxLength="5" />
+          <Property Name="Discount_ID" Type="nvarchar" MaxLength="4" />
           <Property Name="DiscountAmount" Type="money" />
           <Property Name="TaxRate" Type="money" />
           <Property Name="TaxAmount" Type="money" />
@@ -182,7 +178,7 @@ warning 6002: The table/view 'POSDatabase2005.dbo.Transactions' does not have a 
           <Property Name="TransactionStartTime" Type="datetime" />
           <Property Name="TransactionEndTime" Type="datetime" />
           <Property Name="DiscountName" Type="nvarchar" MaxLength="50" />
-          <Property Name="EmployeeCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="Employee_ID" Type="nvarchar" MaxLength="4" />
           <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
           <Property Name="NewRecord" Type="nvarchar" MaxLength="3" Nullable="false" />
         </EntityType>
@@ -208,7 +204,7 @@ warning 6013: The table/view 'POSDatabase2005.dbo.UserMenu' does not have a prim
         </EntityType>-->
         <EntityContainer Name="POSDatabase2005ModelStoreContainer">
           <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CategorySetup" EntityType="Self.CategorySetup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatagorySetup" EntityType="Self.CatagorySetup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CompanyInformation" EntityType="Self.CompanyInformation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Coupons" EntityType="Self.Coupons" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DealSetup" EntityType="Self.DealSetup" Schema="dbo" store:Type="Tables" />
@@ -217,23 +213,24 @@ warning 6013: The table/view 'POSDatabase2005.dbo.UserMenu' does not have a prim
           <EntitySet Name="ItemSetup" EntityType="Self.ItemSetup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transactions" EntityType="Self.Transactions" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Transactions].[TransactionNo] AS [TransactionNo], 
+    [Transactions].[ID] AS [ID], 
     [Transactions].[FBRInvoiceNumber] AS [FBRInvoiceNumber], 
     [Transactions].[TransactionDate] AS [TransactionDate], 
     [Transactions].[TransactionType] AS [TransactionType], 
-    [Transactions].[CategoryCode] AS [CategoryCode], 
+    [Transactions].[Catagory_ID] AS [Catagory_ID], 
     [Transactions].[Customers] AS [Customers], 
     [Transactions].[SalesTaxNo] AS [SalesTaxNo], 
     [Transactions].[ContactNo] AS [ContactNo], 
     [Transactions].[RegistrationAddress] AS [RegistrationAddress], 
     [Transactions].[UserID] AS [UserID], 
-    [Transactions].[ItemCode] AS [ItemCode], 
+    [Transactions].[Item_ID] AS [Item_ID], 
     [Transactions].[ItemName] AS [ItemName], 
     [Transactions].[ItemPrice] AS [ItemPrice], 
+    [Transactions].[ItemPriceExTaxes] AS [ItemPriceExTaxes], 
     [Transactions].[ItemQuantity] AS [ItemQuantity], 
     [Transactions].[ItemTotalAmount] AS [ItemTotalAmount], 
     [Transactions].[InvTotalAmount] AS [InvTotalAmount], 
-    [Transactions].[DiscountCode] AS [DiscountCode], 
+    [Transactions].[Discount_ID] AS [Discount_ID], 
     [Transactions].[DiscountAmount] AS [DiscountAmount], 
     [Transactions].[TaxRate] AS [TaxRate], 
     [Transactions].[TaxAmount] AS [TaxAmount], 
@@ -244,7 +241,7 @@ warning 6013: The table/view 'POSDatabase2005.dbo.UserMenu' does not have a prim
     [Transactions].[TransactionStartTime] AS [TransactionStartTime], 
     [Transactions].[TransactionEndTime] AS [TransactionEndTime], 
     [Transactions].[DiscountName] AS [DiscountName], 
-    [Transactions].[EmployeeCode] AS [EmployeeCode], 
+    [Transactions].[Employee_ID] AS [Employee_ID], 
     [Transactions].[EmployeeName] AS [EmployeeName], 
     [Transactions].[NewRecord] AS [NewRecord]
     FROM [dbo].[Transactions] AS [Transactions]</DefiningQuery>
@@ -254,11 +251,38 @@ warning 6013: The table/view 'POSDatabase2005.dbo.UserMenu' does not have a prim
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="POSDatabase2005Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="POSDatabase2005Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Brands" EntityType="POSDatabase2005Model.Brand" />
+          <EntitySet Name="CatagorySetups" EntityType="POSDatabase2005Model.CatagorySetup" />
+          <EntitySet Name="CompanyInformations" EntityType="POSDatabase2005Model.CompanyInformation" />
+          <EntitySet Name="Coupons" EntityType="POSDatabase2005Model.Coupon" />
+          <EntitySet Name="DealSetups" EntityType="POSDatabase2005Model.DealSetup" />
+          <EntitySet Name="DiscountSetups" EntityType="POSDatabase2005Model.DiscountSetup" />
+          <EntitySet Name="EmployeeInformations" EntityType="POSDatabase2005Model.EmployeeInformation" />
+          <EntitySet Name="ItemSetups" EntityType="POSDatabase2005Model.ItemSetup" />
+          <EntitySet Name="Transactions" EntityType="POSDatabase2005Model.Transaction" />
+        </EntityContainer>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CatagorySetup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="CatagoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Int32" />
+        </EntityType>
         <EntityType Name="CompanyInformation">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CompanyAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DockitFooter" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -270,34 +294,36 @@ warning 6013: The table/view 'POSDatabase2005.dbo.UserMenu' does not have a prim
         </EntityType>
         <EntityType Name="Coupon">
           <Key>
-            <PropertyRef Name="CouponID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="CouponID" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="CouponDesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsActive" Type="Int32" />
         </EntityType>
         <EntityType Name="DealSetup">
           <Key>
-            <PropertyRef Name="DealCode" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="DealCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="DealDescription" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="DealRule" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Int32" />
         </EntityType>
         <EntityType Name="DiscountSetup">
           <Key>
-            <PropertyRef Name="DiscountCode" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="DiscountCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="DiscountDescription" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="DiscountAmount" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="IsPercentage" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsActive" Type="Int32" />
         </EntityType>
         <EntityType Name="EmployeeInformation">
           <Key>
-            <PropertyRef Name="EmployeeCode" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="EmployeeCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NICNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
@@ -305,40 +331,45 @@ warning 6013: The table/view 'POSDatabase2005.dbo.UserMenu' does not have a prim
           <Property Name="ContactNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="EmployeePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Department_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Designation_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ItemSetup">
           <Key>
             <PropertyRef Name="ItemCode" />
           </Key>
-          <Property Name="ItemCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ItemCode" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="ItemName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="CatagoryCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="Quantity" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Catagory_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Brand_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="MinQuantity" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MaxQuantity" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="ItemDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Int32" />
         </EntityType>
         <EntityType Name="Transaction">
           <Key>
             <PropertyRef Name="NewRecord" />
           </Key>
-          <Property Name="TransactionNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="FBRInvoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TransactionDate" Type="DateTime" Precision="3" />
           <Property Name="TransactionType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="CategoryCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Catagory_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="Customers" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SalesTaxNo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="ContactNo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="RegistrationAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="UserID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="ItemCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Item_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ItemPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ItemPriceExTaxes" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="ItemQuantity" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="ItemTotalAmount" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="InvTotalAmount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="DiscountCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Discount_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="DiscountAmount" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="TaxRate" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="TaxAmount" Type="Decimal" Precision="19" Scale="4" />
@@ -349,160 +380,144 @@ warning 6013: The table/view 'POSDatabase2005.dbo.UserMenu' does not have a prim
           <Property Name="TransactionStartTime" Type="DateTime" Precision="3" />
           <Property Name="TransactionEndTime" Type="DateTime" Precision="3" />
           <Property Name="DiscountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EmployeeCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Employee_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NewRecord" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NewRecord" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="POSDatabase2005Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CompanyInformations" EntityType="Self.CompanyInformation" />
-          <EntitySet Name="Coupons" EntityType="Self.Coupon" />
-          <EntitySet Name="DealSetups" EntityType="Self.DealSetup" />
-          <EntitySet Name="DiscountSetups" EntityType="Self.DiscountSetup" />
-          <EntitySet Name="EmployeeInformations" EntityType="Self.EmployeeInformation" />
-          <EntitySet Name="ItemSetups" EntityType="Self.ItemSetup" />
-          <EntitySet Name="Transactions" EntityType="Self.Transaction" />
-          <EntitySet Name="Brands" EntityType="POSDatabase2005Model.Brand" />
-          <EntitySet Name="CategorySetups" EntityType="POSDatabase2005Model.CategorySetup" />
-        </EntityContainer>
-        <EntityType Name="Brand">
-          <Key>
-            <PropertyRef Name="BrandCode" />
-          </Key>
-          <Property Name="BrandCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="CategorySetup">
-          <Key>
-            <PropertyRef Name="CategoryCode" />
-          </Key>
-          <Property Name="CategoryCode" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="POSDatabase2005ModelStoreContainer" CdmEntityContainer="POSDatabase2005Entities">
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="POSDatabase2005Model.Brand">
+              <MappingFragment StoreEntitySet="Brands">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatagorySetups">
+            <EntityTypeMapping TypeName="POSDatabase2005Model.CatagorySetup">
+              <MappingFragment StoreEntitySet="CatagorySetup">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CatagoryName" ColumnName="CatagoryName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="CompanyInformations">
             <EntityTypeMapping TypeName="POSDatabase2005Model.CompanyInformation">
               <MappingFragment StoreEntitySet="CompanyInformation">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
-                <ScalarProperty Name="DockitFooter" ColumnName="DockitFooter" />
-                <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
-                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
-                <ScalarProperty Name="DeliveryNumbers" ColumnName="DeliveryNumbers" />
-                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
                 <ScalarProperty Name="NTNNumber" ColumnName="NTNNumber" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="DeliveryNumbers" ColumnName="DeliveryNumbers" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
+                <ScalarProperty Name="DockitFooter" ColumnName="DockitFooter" />
+                <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Coupons">
             <EntityTypeMapping TypeName="POSDatabase2005Model.Coupon">
               <MappingFragment StoreEntitySet="Coupons">
-                <ScalarProperty Name="CouponID" ColumnName="CouponID" />
-                <ScalarProperty Name="CouponDesc" ColumnName="CouponDesc" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CouponDesc" ColumnName="CouponDesc" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DealSetups">
             <EntityTypeMapping TypeName="POSDatabase2005Model.DealSetup">
               <MappingFragment StoreEntitySet="DealSetup">
-                <ScalarProperty Name="DealCode" ColumnName="DealCode" />
-                <ScalarProperty Name="DealDescription" ColumnName="DealDescription" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="DealRule" ColumnName="DealRule" />
+                <ScalarProperty Name="DealDescription" ColumnName="DealDescription" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DiscountSetups">
             <EntityTypeMapping TypeName="POSDatabase2005Model.DiscountSetup">
               <MappingFragment StoreEntitySet="DiscountSetup">
-                <ScalarProperty Name="DiscountCode" ColumnName="DiscountCode" />
-                <ScalarProperty Name="DiscountDescription" ColumnName="DiscountDescription" />
-                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="IsPercentage" ColumnName="IsPercentage" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="DiscountDescription" ColumnName="DiscountDescription" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeeInformations">
             <EntityTypeMapping TypeName="POSDatabase2005Model.EmployeeInformation">
               <MappingFragment StoreEntitySet="EmployeeInformation">
-                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
-                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
-                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
-                <ScalarProperty Name="NICNumber" ColumnName="NICNumber" />
-                <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
-                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Designation_ID" ColumnName="Designation_ID" />
+                <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
                 <ScalarProperty Name="EmployeePicture" ColumnName="EmployeePicture" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+                <ScalarProperty Name="NICNumber" ColumnName="NICNumber" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ItemSetups">
             <EntityTypeMapping TypeName="POSDatabase2005Model.ItemSetup">
               <MappingFragment StoreEntitySet="ItemSetup">
-                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
-                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="CatagoryCode" ColumnName="CatagoryCode" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="ItemDesc" ColumnName="ItemDesc" />
+                <ScalarProperty Name="MaxQuantity" ColumnName="MaxQuantity" />
+                <ScalarProperty Name="MinQuantity" ColumnName="MinQuantity" />
+                <ScalarProperty Name="Brand_ID" ColumnName="Brand_ID" />
+                <ScalarProperty Name="Catagory_ID" ColumnName="Catagory_ID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Transactions">
             <EntityTypeMapping TypeName="POSDatabase2005Model.Transaction">
               <MappingFragment StoreEntitySet="Transactions">
-                <ScalarProperty Name="TransactionNo" ColumnName="TransactionNo" />
-                <ScalarProperty Name="FBRInvoiceNumber" ColumnName="FBRInvoiceNumber" />
-                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
-                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
-                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
-                <ScalarProperty Name="Customers" ColumnName="Customers" />
-                <ScalarProperty Name="SalesTaxNo" ColumnName="SalesTaxNo" />
-                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
-                <ScalarProperty Name="RegistrationAddress" ColumnName="RegistrationAddress" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
-                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
-                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
-                <ScalarProperty Name="ItemQuantity" ColumnName="ItemQuantity" />
-                <ScalarProperty Name="ItemTotalAmount" ColumnName="ItemTotalAmount" />
-                <ScalarProperty Name="InvTotalAmount" ColumnName="InvTotalAmount" />
-                <ScalarProperty Name="DiscountCode" ColumnName="DiscountCode" />
-                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
-                <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
-                <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
-                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
-                <ScalarProperty Name="TransactionClose" ColumnName="TransactionClose" />
-                <ScalarProperty Name="TransactionsVoid" ColumnName="TransactionsVoid" />
-                <ScalarProperty Name="VoidDescription" ColumnName="VoidDescription" />
-                <ScalarProperty Name="TransactionStartTime" ColumnName="TransactionStartTime" />
-                <ScalarProperty Name="TransactionEndTime" ColumnName="TransactionEndTime" />
-                <ScalarProperty Name="DiscountName" ColumnName="DiscountName" />
-                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
-                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
                 <ScalarProperty Name="NewRecord" ColumnName="NewRecord" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Brands">
-            <EntityTypeMapping TypeName="POSDatabase2005Model.Brand">
-              <MappingFragment StoreEntitySet="Brands">
-                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
-                <ScalarProperty Name="BrandCode" ColumnName="BrandCode" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CategorySetups">
-            <EntityTypeMapping TypeName="POSDatabase2005Model.CategorySetup">
-              <MappingFragment StoreEntitySet="CategorySetup">
-                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="DiscountName" ColumnName="DiscountName" />
+                <ScalarProperty Name="TransactionEndTime" ColumnName="TransactionEndTime" />
+                <ScalarProperty Name="TransactionStartTime" ColumnName="TransactionStartTime" />
+                <ScalarProperty Name="VoidDescription" ColumnName="VoidDescription" />
+                <ScalarProperty Name="TransactionsVoid" ColumnName="TransactionsVoid" />
+                <ScalarProperty Name="TransactionClose" ColumnName="TransactionClose" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+                <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="Discount_ID" ColumnName="Discount_ID" />
+                <ScalarProperty Name="InvTotalAmount" ColumnName="InvTotalAmount" />
+                <ScalarProperty Name="ItemTotalAmount" ColumnName="ItemTotalAmount" />
+                <ScalarProperty Name="ItemQuantity" ColumnName="ItemQuantity" />
+                <ScalarProperty Name="ItemPriceExTaxes" ColumnName="ItemPriceExTaxes" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RegistrationAddress" ColumnName="RegistrationAddress" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="SalesTaxNo" ColumnName="SalesTaxNo" />
+                <ScalarProperty Name="Customers" ColumnName="Customers" />
+                <ScalarProperty Name="Catagory_ID" ColumnName="Catagory_ID" />
+                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="FBRInvoiceNumber" ColumnName="FBRInvoiceNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -25,6 +25,8 @@ namespace FBRPOS
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Brand> Brands { get; set; }
+        public virtual DbSet<CatagorySetup> CatagorySetups { get; set; }
         public virtual DbSet<CompanyInformation> CompanyInformations { get; set; }
         public virtual DbSet<Coupon> Coupons { get; set; }
         public virtual DbSet<DealSetup> DealSetups { get; set; }
@@ -32,7 +34,5 @@ namespace FBRPOS
         public virtual DbSet<EmployeeInformation> EmployeeInformations { get; set; }
         public virtual DbSet<ItemSetup> ItemSetups { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
-        public virtual DbSet<Brand> Brands { get; set; }
-        public virtual DbSet<CategorySetup> CategorySetups { get; set; }
     }
 }

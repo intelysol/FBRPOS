@@ -12,9 +12,10 @@ namespace FBRPOS
     using System;
     using System.Collections.Generic;
     
-    public partial class CategorySetup
+    public partial class CatagorySetup
     {
-        public string CategoryCode { get; set; }
-        public string CategoryName { get; set; }
+        public string ID { get; set; }
+        public string CatagoryName { get; set; }
+        public Nullable<int> IsActive { get; set; }
     }
 }
