@@ -17,3 +17,4 @@ c:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.frmCustomers.resources
 C:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.frmMain.resources
 C:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.ucBrands.resources
 C:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.csprojResolveAssemblyReference.cache
+C:\Projects\FBRPOS\FBRPOS\obj\Debug\FBRPOS.ucItemCategory.resources

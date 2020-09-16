@@ -1,10 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="POSDatabase2005Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="POSDatabase2005Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Brands" EntityType="POSDatabase2005Model.Brand" />
+    <EntitySet Name="CatagorySetups" EntityType="POSDatabase2005Model.CatagorySetup" />
+    <EntitySet Name="CompanyInformations" EntityType="POSDatabase2005Model.CompanyInformation" />
+    <EntitySet Name="Coupons" EntityType="POSDatabase2005Model.Coupon" />
+    <EntitySet Name="DealSetups" EntityType="POSDatabase2005Model.DealSetup" />
+    <EntitySet Name="DiscountSetups" EntityType="POSDatabase2005Model.DiscountSetup" />
+    <EntitySet Name="EmployeeInformations" EntityType="POSDatabase2005Model.EmployeeInformation" />
+    <EntitySet Name="ItemSetups" EntityType="POSDatabase2005Model.ItemSetup" />
+    <EntitySet Name="Transactions" EntityType="POSDatabase2005Model.Transaction" />
+  </EntityContainer>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CatagorySetup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="CatagoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+  </EntityType>
   <EntityType Name="CompanyInformation">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
     <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="CompanyAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="DockitFooter" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -16,34 +43,36 @@
   </EntityType>
   <EntityType Name="Coupon">
     <Key>
-      <PropertyRef Name="CouponID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="CouponID" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
     <Property Name="CouponDesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsActive" Type="Int32" />
   </EntityType>
   <EntityType Name="DealSetup">
     <Key>
-      <PropertyRef Name="DealCode" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="DealCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
     <Property Name="DealDescription" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="DealRule" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
   </EntityType>
   <EntityType Name="DiscountSetup">
     <Key>
-      <PropertyRef Name="DiscountCode" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="DiscountCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
     <Property Name="DiscountDescription" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="DiscountAmount" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="IsPercentage" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsActive" Type="Int32" />
   </EntityType>
   <EntityType Name="EmployeeInformation">
     <Key>
-      <PropertyRef Name="EmployeeCode" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="EmployeeCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
     <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="NICNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
@@ -51,40 +80,45 @@
     <Property Name="ContactNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
     <Property Name="Address" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
     <Property Name="EmployeePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Department_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Designation_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="ItemSetup">
     <Key>
       <PropertyRef Name="ItemCode" />
     </Key>
-    <Property Name="ItemCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ItemCode" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
     <Property Name="ItemName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="CatagoryCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
-    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Catagory_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Brand_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="MinQuantity" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="MaxQuantity" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="ItemDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
   </EntityType>
   <EntityType Name="Transaction">
     <Key>
       <PropertyRef Name="NewRecord" />
     </Key>
-    <Property Name="TransactionNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
     <Property Name="FBRInvoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="TransactionDate" Type="DateTime" Precision="3" />
     <Property Name="TransactionType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-    <Property Name="CategoryCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Catagory_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
     <Property Name="Customers" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="SalesTaxNo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
     <Property Name="ContactNo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
     <Property Name="RegistrationAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="UserID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-    <Property Name="ItemCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Item_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
     <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ItemPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ItemPriceExTaxes" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="ItemQuantity" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="ItemTotalAmount" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="InvTotalAmount" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="DiscountCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Discount_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
     <Property Name="DiscountAmount" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="TaxRate" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="TaxAmount" Type="Decimal" Precision="19" Scale="4" />
@@ -95,33 +129,8 @@
     <Property Name="TransactionStartTime" Type="DateTime" Precision="3" />
     <Property Name="TransactionEndTime" Type="DateTime" Precision="3" />
     <Property Name="DiscountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="EmployeeCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
     <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NewRecord" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
-  <EntityContainer Name="POSDatabase2005Entities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="CompanyInformations" EntityType="Self.CompanyInformation" />
-    <EntitySet Name="Coupons" EntityType="Self.Coupon" />
-    <EntitySet Name="DealSetups" EntityType="Self.DealSetup" />
-    <EntitySet Name="DiscountSetups" EntityType="Self.DiscountSetup" />
-    <EntitySet Name="EmployeeInformations" EntityType="Self.EmployeeInformation" />
-    <EntitySet Name="ItemSetups" EntityType="Self.ItemSetup" />
-    <EntitySet Name="Transactions" EntityType="Self.Transaction" />
-    <EntitySet Name="Brands" EntityType="POSDatabase2005Model.Brand" />
-    <EntitySet Name="CategorySetups" EntityType="POSDatabase2005Model.CategorySetup" />
-  </EntityContainer>
-  <EntityType Name="Brand">
-    <Key>
-      <PropertyRef Name="BrandCode" />
-    </Key>
-    <Property Name="BrandCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
-    <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="CategorySetup">
-    <Key>
-      <PropertyRef Name="CategoryCode" />
-    </Key>
-    <Property Name="CategoryCode" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
-    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NewRecord" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

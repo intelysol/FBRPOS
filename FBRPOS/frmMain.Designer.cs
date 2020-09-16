@@ -33,7 +33,7 @@
             // 
             // ucBrands1
             // 
-            this.ucBrands1.Location = new System.Drawing.Point(170, 81);
+            this.ucBrands1.Location = new System.Drawing.Point(216, 101);
             this.ucBrands1.Name = "ucBrands1";
             this.ucBrands1.Size = new System.Drawing.Size(578, 231);
             this.ucBrands1.TabIndex = 0;

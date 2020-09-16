@@ -2,23 +2,25 @@
 <Schema Namespace="POSDatabase2005Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Brands">
     <Key>
-      <PropertyRef Name="BrandCode" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="BrandCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="ID" Type="nvarchar" MaxLength="4" Nullable="false" />
     <Property Name="BrandName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="int" />
   </EntityType>
-  <EntityType Name="CategorySetup">
+  <EntityType Name="CatagorySetup">
     <Key>
-      <PropertyRef Name="CategoryCode" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="CategoryCode" Type="nvarchar" MaxLength="4" Nullable="false" />
-    <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="CatagoryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="int" />
   </EntityType>
   <EntityType Name="CompanyInformation">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="nvarchar" MaxLength="4" Nullable="false" />
     <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
     <Property Name="CompanyAddress" Type="nvarchar" MaxLength="50" />
     <Property Name="DockitFooter" Type="nvarchar" MaxLength="200" />
@@ -30,11 +32,11 @@
   </EntityType>
   <EntityType Name="Coupons">
     <Key>
-      <PropertyRef Name="CouponID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="CouponID" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="ID" Type="nvarchar" MaxLength="4" Nullable="false" />
     <Property Name="CouponDesc" Type="nvarchar" MaxLength="200" />
-    <Property Name="IsActive" Type="char" MaxLength="1" />
+    <Property Name="IsActive" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6013: The table/view 'POSDatabase2005.dbo.DailySummary' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
@@ -46,26 +48,28 @@ warning 6013: The table/view 'POSDatabase2005.dbo.DailySummary' does not have a 
         </EntityType>-->
   <EntityType Name="DealSetup">
     <Key>
-      <PropertyRef Name="DealCode" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="DealCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="ID" Type="nvarchar" MaxLength="4" Nullable="false" />
     <Property Name="DealDescription" Type="nvarchar" MaxLength="30" />
     <Property Name="DealRule" Type="nvarchar" MaxLength="30" />
+    <Property Name="IsActive" Type="int" />
   </EntityType>
   <EntityType Name="DiscountSetup">
     <Key>
-      <PropertyRef Name="DiscountCode" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="DiscountCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="ID" Type="nvarchar" MaxLength="4" Nullable="false" />
     <Property Name="DiscountDescription" Type="nvarchar" MaxLength="30" />
     <Property Name="DiscountAmount" Type="money" />
     <Property Name="IsPercentage" Type="char" MaxLength="1" />
+    <Property Name="IsActive" Type="int" />
   </EntityType>
   <EntityType Name="EmployeeInformation">
     <Key>
-      <PropertyRef Name="EmployeeCode" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="EmployeeCode" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="ID" Type="nvarchar" MaxLength="4" Nullable="false" />
     <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
     <Property Name="FatherName" Type="nvarchar" MaxLength="50" />
     <Property Name="NICNumber" Type="nvarchar" MaxLength="15" />
@@ -73,14 +77,9 @@ warning 6013: The table/view 'POSDatabase2005.dbo.DailySummary' does not have a 
     <Property Name="ContactNumber" Type="nvarchar" MaxLength="15" />
     <Property Name="Address" Type="nvarchar" MaxLength="80" />
     <Property Name="EmployeePicture" Type="varbinary(max)" />
+    <Property Name="Department_ID" Type="nvarchar" MaxLength="4" />
+    <Property Name="Designation_ID" Type="nvarchar" MaxLength="4" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'POSDatabase2005.dbo.FamilySetup' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="FamilySetup">
-          <Property Name="FamilyCode" Type="nvarchar" MaxLength="5" />
-          <Property Name="FamilyGuardian" Type="nvarchar" MaxLength="50" />
-          <Property Name="CreditLimit" Type="money" />
-        </EntityType>-->
   <!--Errors Found During Generation:
 warning 6013: The table/view 'POSDatabase2005.dbo.FBRSettings' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="FBRSettings">
@@ -96,10 +95,12 @@ warning 6013: The table/view 'POSDatabase2005.dbo.FBRSettings' does not have a p
     <Property Name="ItemCode" Type="nvarchar" MaxLength="4" Nullable="false" />
     <Property Name="ItemName" Type="nvarchar" MaxLength="255" />
     <Property Name="Price" Type="money" />
-    <Property Name="CatagoryCode" Type="nvarchar" MaxLength="4" />
-    <Property Name="Quantity" Type="numeric" Precision="18" Scale="0" />
-    <Property Name="IsActive" Type="char" MaxLength="1" />
+    <Property Name="Catagory_ID" Type="nvarchar" MaxLength="4" />
+    <Property Name="Brand_ID" Type="nvarchar" MaxLength="4" />
+    <Property Name="MinQuantity" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MaxQuantity" Type="numeric" Precision="18" Scale="0" />
     <Property Name="ItemDesc" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsActive" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6013: The table/view 'POSDatabase2005.dbo.MemberInformation' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
@@ -123,13 +124,6 @@ warning 6013: The table/view 'POSDatabase2005.dbo.MemberInformation' does not ha
           <Property Name="CardNumber" Type="nvarchar" MaxLength="15" />
         </EntityType>-->
   <!--Errors Found During Generation:
-warning 6013: The table/view 'POSDatabase2005.dbo.MemberShipSetup' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="MemberShipSetup">
-          <Property Name="Code" Type="nvarchar" MaxLength="4" />
-          <Property Name="MemberShip" Type="nvarchar" MaxLength="255" />
-          <Property Name="CreditLimit" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
-  <!--Errors Found During Generation:
 warning 6013: The table/view 'POSDatabase2005.dbo.MenuRights' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="MenuRights">
           <Property Name="UserID" Type="nvarchar" MaxLength="15" />
@@ -139,10 +133,11 @@ warning 6013: The table/view 'POSDatabase2005.dbo.MenuRights' does not have a pr
   <!--Errors Found During Generation:
 warning 6013: The table/view 'POSDatabase2005.dbo.TaxesSetup' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="TaxesSetup">
-          <Property Name="TaxesCode" Type="nvarchar" MaxLength="3" />
+          <Property Name="ID" Type="nvarchar" MaxLength="4" />
           <Property Name="TaxesDescription" Type="nvarchar" MaxLength="50" />
-          <Property Name="TaxesAmount" Type="money" />
-          <Property Name="IsPercentage" Type="char" MaxLength="1" />
+          <Property Name="TaxesAmount" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="IsPercentage" Type="int" />
+          <Property Name="IsActive" Type="int" />
         </EntityType>-->
   <!--Errors Found During Generation:
 warning 6002: The table/view 'POSDatabase2005.dbo.Transactions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -150,23 +145,24 @@ warning 6002: The table/view 'POSDatabase2005.dbo.Transactions' does not have a 
     <Key>
       <PropertyRef Name="NewRecord" />
     </Key>
-    <Property Name="TransactionNo" Type="nvarchar" MaxLength="15" />
+    <Property Name="ID" Type="nvarchar" MaxLength="15" />
     <Property Name="FBRInvoiceNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="TransactionDate" Type="datetime" />
     <Property Name="TransactionType" Type="nvarchar" MaxLength="15" />
-    <Property Name="CategoryCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="Catagory_ID" Type="nvarchar" MaxLength="4" />
     <Property Name="Customers" Type="nvarchar" MaxLength="50" />
     <Property Name="SalesTaxNo" Type="nvarchar" MaxLength="25" />
     <Property Name="ContactNo" Type="nvarchar" MaxLength="25" />
     <Property Name="RegistrationAddress" Type="nvarchar" MaxLength="150" />
     <Property Name="UserID" Type="nvarchar" MaxLength="15" />
-    <Property Name="ItemCode" Type="nvarchar" MaxLength="4" />
+    <Property Name="Item_ID" Type="nvarchar" MaxLength="4" />
     <Property Name="ItemName" Type="nvarchar" MaxLength="50" />
     <Property Name="ItemPrice" Type="money" />
+    <Property Name="ItemPriceExTaxes" Type="money" />
     <Property Name="ItemQuantity" Type="money" />
     <Property Name="ItemTotalAmount" Type="money" />
     <Property Name="InvTotalAmount" Type="money" />
-    <Property Name="DiscountCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="Discount_ID" Type="nvarchar" MaxLength="4" />
     <Property Name="DiscountAmount" Type="money" />
     <Property Name="TaxRate" Type="money" />
     <Property Name="TaxAmount" Type="money" />
@@ -177,7 +173,7 @@ warning 6002: The table/view 'POSDatabase2005.dbo.Transactions' does not have a 
     <Property Name="TransactionStartTime" Type="datetime" />
     <Property Name="TransactionEndTime" Type="datetime" />
     <Property Name="DiscountName" Type="nvarchar" MaxLength="50" />
-    <Property Name="EmployeeCode" Type="nvarchar" MaxLength="4" />
+    <Property Name="Employee_ID" Type="nvarchar" MaxLength="4" />
     <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
     <Property Name="NewRecord" Type="nvarchar" MaxLength="3" Nullable="false" />
   </EntityType>
@@ -203,7 +199,7 @@ warning 6013: The table/view 'POSDatabase2005.dbo.UserMenu' does not have a prim
         </EntityType>-->
   <EntityContainer Name="POSDatabase2005ModelStoreContainer">
     <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="CategorySetup" EntityType="Self.CategorySetup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatagorySetup" EntityType="Self.CatagorySetup" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CompanyInformation" EntityType="Self.CompanyInformation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Coupons" EntityType="Self.Coupons" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DealSetup" EntityType="Self.DealSetup" Schema="dbo" store:Type="Tables" />
@@ -212,23 +208,24 @@ warning 6013: The table/view 'POSDatabase2005.dbo.UserMenu' does not have a prim
     <EntitySet Name="ItemSetup" EntityType="Self.ItemSetup" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Transactions" EntityType="Self.Transactions" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [Transactions].[TransactionNo] AS [TransactionNo], 
+    [Transactions].[ID] AS [ID], 
     [Transactions].[FBRInvoiceNumber] AS [FBRInvoiceNumber], 
     [Transactions].[TransactionDate] AS [TransactionDate], 
     [Transactions].[TransactionType] AS [TransactionType], 
-    [Transactions].[CategoryCode] AS [CategoryCode], 
+    [Transactions].[Catagory_ID] AS [Catagory_ID], 
     [Transactions].[Customers] AS [Customers], 
     [Transactions].[SalesTaxNo] AS [SalesTaxNo], 
     [Transactions].[ContactNo] AS [ContactNo], 
     [Transactions].[RegistrationAddress] AS [RegistrationAddress], 
     [Transactions].[UserID] AS [UserID], 
-    [Transactions].[ItemCode] AS [ItemCode], 
+    [Transactions].[Item_ID] AS [Item_ID], 
     [Transactions].[ItemName] AS [ItemName], 
     [Transactions].[ItemPrice] AS [ItemPrice], 
+    [Transactions].[ItemPriceExTaxes] AS [ItemPriceExTaxes], 
     [Transactions].[ItemQuantity] AS [ItemQuantity], 
     [Transactions].[ItemTotalAmount] AS [ItemTotalAmount], 
     [Transactions].[InvTotalAmount] AS [InvTotalAmount], 
-    [Transactions].[DiscountCode] AS [DiscountCode], 
+    [Transactions].[Discount_ID] AS [Discount_ID], 
     [Transactions].[DiscountAmount] AS [DiscountAmount], 
     [Transactions].[TaxRate] AS [TaxRate], 
     [Transactions].[TaxAmount] AS [TaxAmount], 
@@ -239,7 +236,7 @@ warning 6013: The table/view 'POSDatabase2005.dbo.UserMenu' does not have a prim
     [Transactions].[TransactionStartTime] AS [TransactionStartTime], 
     [Transactions].[TransactionEndTime] AS [TransactionEndTime], 
     [Transactions].[DiscountName] AS [DiscountName], 
-    [Transactions].[EmployeeCode] AS [EmployeeCode], 
+    [Transactions].[Employee_ID] AS [Employee_ID], 
     [Transactions].[EmployeeName] AS [EmployeeName], 
     [Transactions].[NewRecord] AS [NewRecord]
     FROM [dbo].[Transactions] AS [Transactions]</DefiningQuery>
